@@ -1,0 +1,61 @@
+{
+  "name": "toyota-service",
+  "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "12"
+  },
+  "scripts": {
+    "start": "env-cmd node dist",
+    "dev": "env-cmd -f .env.dev nodemon",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "prettier": "prettier --write src/**/*.js",
+    "test:unit": "env-cmd -f .env.test jest -c config/jest/jest.unit.config.js",
+    "test:integration": "env-cmd -f .env.test jest -c config/jest/jest.integration.config.js",
+    "test:coverage": "env-cmd -f .env.test jest -c config/jest/jest.config.js --coverage",
+    "build": "babel src -d dist -D --quiet --delete-dir-on-start --ignore \"**/__tests__/*\" && rimraf dist/**/__tests__"
+  },
+  "dependencies": {
+    "env-cmd": "^10.0.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "eslint": "6.1.0",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-import-resolver-babel-module": "^5.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.0.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.1",
+    "rimraf": "^3.0.0",
+    "supertest": "^4.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "pretty-quick — staged",
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}

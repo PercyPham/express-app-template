@@ -1,0 +1,6 @@
+{
+  "ignore": ["node_modules"],
+  "watch": ["src", "yarn.lock"],
+  "exec": "yarn build && node dist",
+  "ext": "js"
+}
