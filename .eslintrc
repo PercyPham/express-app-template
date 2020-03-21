@@ -1,0 +1,23 @@
+{
+	"extends": ["airbnb", "prettier", "plugin:jest/recommended"],
+	"plugins": ["prettier", "jest"],
+	"env": {
+		"jest": true
+	},
+	"rules": {
+		"prettier/prettier": "error",
+		"max-len": ["warn", { "code": 100 }],
+		"consistent-return": 1,
+		"comma-dangle": ["error", "never"],
+		"linebreak-style": ["error", "unix"],
+		"arrow-parens": ["error", "as-needed"]
+	},
+	"settings": {
+		"import/resolver": {
+			"babel-module": {}
+		},
+		"react": {
+			"version": "999.999.999"
+		}
+	}
+}

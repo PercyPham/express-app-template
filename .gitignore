@@ -1,0 +1,11 @@
+# External packages
+node_modules
+
+# Build
+dist
+
+# Test
+.coverage
+
+# Env
+.env
